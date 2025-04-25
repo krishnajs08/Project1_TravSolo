@@ -1,0 +1,82 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 1rem 2rem;
+    color: white;
+  
+    .logo img {
+      height: 60px;
+    }
+  
+    .navLinks {
+      display: flex;
+      gap: 50px;
+  
+      .navItem {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: color 0.3s;
+  
+        &:hover {
+          color: #f39c12;
+        }
+      }
+    }
+}  
+  .title{
+    font-size: 30px;
+    font-weight: 700;
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    padding: 10px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+  
+  .location, .address, .description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .details {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #444;
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .bookingLink {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background:black;
+    color:white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  
+  .bookingLink:hover {
+    background: gray;
+  }
+  
+  .error {
+    text-align: center;
+    color: red;
+    font-size: 1.5rem;
+  }
+  

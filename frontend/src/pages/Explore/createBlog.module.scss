@@ -1,0 +1,87 @@
+.whole2{
+  display: flex;
+    flex-direction: row;
+  padding: 2rem;
+    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+    background: url(../../assets/images/pn.jpg) no-repeat center center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+.out{
+  width: 520px;
+  height: 50%;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // background-color: #007bff;
+
+  .overlay p{
+    font-size: 40px;
+    font-weight:700;
+    color:  rgb(5, 35, 54) ;
+  }
+  .opt{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+  }
+  .opt a{
+    text-decoration: none;
+    padding:10px;
+    border-radius: 20px;
+    font-size: 19px;
+    color: black;
+    background-color: #c2c2c2;
+  }
+  .opt a:hover{
+    background-color: black;
+    color: white;
+  }
+}
+.create_blog {
+  display: flex;
+  flex-direction: column;
+ width: 50%;
+ height: 85vh;
+margin-left: 40px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  h2 {
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  input, textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background: #0056b3;
+    }
+  }
+}

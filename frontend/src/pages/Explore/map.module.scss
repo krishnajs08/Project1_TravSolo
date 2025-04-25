@@ -1,0 +1,76 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Map container styling */
+  .mapContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  .navBar{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    
+    margin-right: 70px;
+
+  }
+  .navBar a{
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+  }
+  .navBar a:hover{
+    color: greenyellow;
+  }
+  /* Search bar styling */
+  .searchBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ 
+    width: 100%;
+    padding: 1rem;
+    background: rgb(30, 102, 153);
+  }
+  
+  .searchInput {
+    width: 40%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+  }
+  
+  .searchButton {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    background: #25533d;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background 0.3s;
+  
+    &:hover {
+      background: #567c6a;
+    }
+  }
+  
+  /* Map styling */
+  .map {
+    width: 100%;
+    height: calc(100vh - 4rem);
+    border: none;
+  }
+  
