@@ -22,15 +22,8 @@ const Navbar = () => {
   // Logout function
   const handleLogout = async () => {
     try {
-      const userId = localStorage.getItem("userId");
-      
-      if (!userId) {
-        alert("No user logged in!");
-        return;
-      }
-
-      // Send delete request to remove user from database
-      await axios.delete(`http://localhost:3001/api/v1/user/delete/${userId}`);
+      // Call logout endpoint
+      await axios.post(`http://localhost:3001/api/v1/user/logout`);
 
       // Clear local storage
       localStorage.removeItem("authToken");
@@ -40,12 +33,11 @@ const Navbar = () => {
       setIsLoggedIn(false);
 
       alert("Logout successful!");
-      navigate("/"); // Redirect to login page
+      navigate("/"); // Redirect to home page
     } catch (error) {
       console.error("Logout error:", error);
       alert("Error while logging out. Try again.");
     }
-    window.location.reload();
   };
 
   return (

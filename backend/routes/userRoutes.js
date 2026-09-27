@@ -1,5 +1,5 @@
 const express = require('express');
-const { registerController, loginController, getAllUsers , deleteUser } = require('../controllers/userController');
+const { registerController, loginController, getAllUsers, deleteUser, logoutController } = require('../controllers/userController');
 
 // Router object
 const router = express.Router();
@@ -10,10 +10,13 @@ router.post('/register', registerController);
 // Login user || POST
 router.post('/login', loginController);
 
+// Logout user || POST
+router.post('/logout', logoutController);
+
 // Get all users || GET
 router.get('/all-users', getAllUsers);
 
-// Logout user || DELETE
+// Delete user || DELETE
 router.delete('/delete/:id', deleteUser);
 
 

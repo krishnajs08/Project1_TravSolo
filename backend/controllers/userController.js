@@ -122,6 +122,23 @@ exports.loginController = async (req, res) => {
     }
 };
 
+// Logout Controller
+exports.logoutController = async (req, res) => {
+    try {
+        return res.status(200).send({
+            success: true,
+            message: "Logout successful",
+        });
+    } catch (error) {
+        console.error("Error logging out:", error);
+        return res.status(500).send({
+            success: false,
+            message: "Error logging out",
+            error: error.message,
+        });
+    }
+};
+
 exports.deleteUser = async (req, res) => {
     try {
         const { id } = req.params;

@@ -13,6 +13,10 @@ const Home = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("authToken"));
 
+  const renderExploreOption = () => {
+  return isLoggedIn ? <li><a href="/explore" id="option">Explore</a></li> : null;
+};
+
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.src = "./videos/All videos.mp4"; // Set video source dynamically
@@ -52,7 +56,7 @@ const Home = () => {
           onEnded={handleVideoEnd}
         />
         <h1>"Your Journey, Your Rules – Embrace the Solo Spirit."</h1>
-
+        
         <input type="text" id="searchInput" placeholder="Where to visit ?" />
         <button type="submit" id="searchButton" onClick={handleSearch}>Search</button>
       </div>
@@ -61,7 +65,8 @@ const Home = () => {
       <div className="card">
         <ul id="nav-down">
           <li><a href="/" id="option1">Home</a></li>
-          {isLoggedIn && <li><a href="/explore" id="option">Explore</a></li>} {/* Show Explore only if logged in */}
+          {renderExploreOption()}
+          {/* {isLoggedIn &&<li><a href="/explore" id="option">Explore</a></li>} Show Explore only if logged ..... if i want to add this function again  = {isLoggedIn && <li><a href = "/explore" id="option">Explore</a></li>} add thi */}
           <li><a href="/about" id="option">About</a></li>
         </ul>
 
