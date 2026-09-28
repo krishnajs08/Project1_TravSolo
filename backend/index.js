@@ -12,8 +12,9 @@ dotenv.config();
 const port = process.env.PORT || 3001;
 
 // MongoDB connection
-connectDB().catch(() => {
+connectDB().catch((error) => {
   console.error("Database routes will return 503 until MongoDB is reachable.");
+  console.error("MongoDB ERROR:", error.message);
 });
 
 // Router imports
