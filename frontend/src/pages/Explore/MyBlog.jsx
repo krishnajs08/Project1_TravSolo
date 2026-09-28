@@ -10,7 +10,7 @@ const MyBlog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/api/v1/blogs/all");
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/blogs/all`);
         setBlogs(res.data);
       } catch (error) {
         console.error("Error fetching blogs", error);
@@ -24,7 +24,7 @@ const MyBlog = () => {
 
   const deleteBlog = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/v1/blogs/delete/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/v1/blogs/delete/${id}`);
       setBlogs(blogs.filter((blog) => blog._id !== id));
     } catch (error) {
       console.error("Error deleting blog", error);
