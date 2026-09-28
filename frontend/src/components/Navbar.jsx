@@ -23,7 +23,8 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       // Call logout endpoint
-      await axios.post(`http://localhost:3001/api/v1/user/logout`);
+      // await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/user/logout`);
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/user/logout`);
 
       // Clear local storage
       localStorage.removeItem("authToken");

@@ -23,7 +23,7 @@ const CreateBlog = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/api/v1/blogs/create");
+      const res = axios.get(`${import.meta.env.VITE_API_URL}/api/v1/blogs/create`);
 
       setBlogs(res.data);
     } catch (error) {
@@ -58,7 +58,7 @@ const CreateBlog = () => {
     e.preventDefault();
   
     try {
-      const response = await fetch("http://localhost:3001/api/v1/blogs/create", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/blogs/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(blog),
@@ -82,7 +82,7 @@ const CreateBlog = () => {
   
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/v1/blogs/delete/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/v1/blogs/delete/${id}`);
 
       setBlogs(blogs.filter((blog) => blog._id !== id));
     } catch (error) {
