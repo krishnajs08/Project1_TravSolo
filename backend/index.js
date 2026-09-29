@@ -6,15 +6,21 @@ const colors = require("colors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const connectDB = require("./config/db");
+let databaseError = null;
 
 // Load environment variables
 dotenv.config();
 const port = process.env.PORT || 3001;
 
 // MongoDB connection
+// connectDB().catch((error) => {
+//   console.error("Database routes will return 503 until MongoDB is reachable.");
+//   console.error("MongoDB ERROR:", error.message);
+// });
+
 connectDB().catch((error) => {
-  console.error("Database routes will return 503 until MongoDB is reachable.");
-  console.error("MongoDB ERROR:", error.message);
+  databaseError = error.message;
+  console.error("DATABASE_CONNECTION_ERROR:", error);
 });
 
 // Router imports
@@ -26,11 +32,23 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
+// app.get("/health", (_req, res) => {
+//   const connected = mongoose.connection.readyState === 1;
+//   res.status(connected ? 200 : 503).json({
+//     status: connected ? "ok" : "degraded",
+//     database: connected ? "connected" : "disconnected",
+//   });
+// });
+
 app.get("/health", (_req, res) => {
   const connected = mongoose.connection.readyState === 1;
+
   res.status(connected ? 200 : 503).json({
     status: connected ? "ok" : "degraded",
     database: connected ? "connected" : "disconnected",
+    mongoUrlConfigured: Boolean(process.env.MONGO_URL),
+    mongooseReadyState: mongoose.connection.readyState,
+    databaseError: databaseError || null,
   });
 });
 
