@@ -84,3 +84,32 @@
     cursor: pointer;
     color: white
 }
+
+@media (max-width: 520px) {
+    .register {
+        min-height: 100svh;
+        height: auto;
+        padding: 20px 14px;
+    }
+
+    .wrapper {
+        width: 100%;
+        max-width: 420px;
+        min-height: 500px;
+        height: auto;
+        padding: 24px 18px;
+    }
+
+    .wrapper h2 {
+        font-size: 30px;
+    }
+
+    .box,
+    .in {
+        width: 100%;
+    }
+
+    .but {
+        margin-top: 24px;
+    }
+}

@@ -4,7 +4,9 @@
   justify-content: center;
   gap: 70px;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
+  padding: 28px 16px;
   margin: 0;
   background-color:rgb(222, 219, 219);
 }
@@ -82,6 +84,27 @@
   margin-top: 20px;
 }
 .para{
-  width: 700px;
+  width: min(700px, 100%);
   color: white;
+}
+
+@media (max-width: 520px) {
+  .aboutCont {
+    gap: 32px;
+    padding: 24px 14px;
+  }
+
+  .card {
+    width: min(350px, calc(100vw - 36px));
+    height: 300px;
+    margin-top: 12px;
+  }
+
+  .card-front p {
+    font-size: 18px;
+  }
+
+  .card-back p {
+    font-size: 22px;
+  }
 }

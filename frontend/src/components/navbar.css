@@ -65,7 +65,7 @@ ul li {
 
 /* Change text color when scrolled */
 .scrolled-text {
-    color: black !important; /* Text turns black after scrolling */
+    color: white !important;
 }
 
 /* Hover effect when scrolled */
@@ -84,4 +84,30 @@ ul li {
 }
 #logout:hover{
     background-color: black;
+}
+
+@media (max-width: 600px) {
+    #navbar,
+    #navbar.scrolled {
+        padding: 8px 14px;
+    }
+
+    .logo {
+        width: 112px;
+    }
+
+    #menu {
+        gap: 4px;
+        margin-right: 0;
+    }
+
+    #menu li a,
+    #logout {
+        padding: 7px 9px;
+        font-size: 15px;
+    }
+
+    #menu li {
+        margin-top: 0;
+    }
 }
