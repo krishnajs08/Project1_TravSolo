@@ -286,3 +286,88 @@ h1 {
 .dynamic-card-button:hover {
     background-color: #333; /* Slightly darker on hover */
 }
+
+@media (max-width: 1200px) {
+    #card-container,
+    .dynamic-card-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+        width: min(100% - 32px, 700px);
+    }
+
+    .card1,
+    .dynamic-card {
+        width: 100%;
+        height: auto;
+        min-height: 350px;
+    }
+
+    #nav-down {
+        gap: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .video-container {
+        min-height: 78svh;
+        margin-bottom: 32px;
+    }
+
+    h1 {
+        top: 38%;
+        left: 50%;
+        width: calc(100% - 32px);
+        font-size: clamp(24px, 7vw, 34px);
+        padding: 8px;
+    }
+
+    .video-container input {
+        top: 62%;
+        left: 50%;
+        width: calc(100% - 36px);
+        font-size: 16px;
+    }
+
+    #searchButton {
+        top: 76%;
+        left: 50%;
+        margin: 0;
+        transform: translateX(-50%);
+        width: 110px;
+    }
+
+    #nav-down {
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        font-size: 15px;
+    }
+
+    #blog-heading {
+        padding: 0 16px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    #card-container,
+    .dynamic-card-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        width: calc(100% - 32px);
+    }
+
+    .card1,
+    .dynamic-card {
+        max-width: 420px;
+        min-height: 0;
+        margin: 0 auto;
+    }
+
+    .card1-content,
+    .dynamic-card-content {
+        gap: 10px;
+    }
+
+    .about-section {
+        padding: 36px 18px;
+    }
+}
