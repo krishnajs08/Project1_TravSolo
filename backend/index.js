@@ -64,6 +64,9 @@ const requireDatabase = (_req, res, next) => {
 };
 
 // Routes
+// ... (Your routes and middleware are above this)
+
+// Routes
 app.use("/api/v1/user", (req, res, next) => {
   if (req.method === "POST" && req.path === "/logout") return next();
   return requireDatabase(req, res, next);
@@ -71,19 +74,25 @@ app.use("/api/v1/user", (req, res, next) => {
 
 app.use("/api/v1/blogs", requireDatabase, blogRoutes);
 
-// Start server (Only matters for local environment, Vercel ignores app.listen)
-const server = app.listen(port, () => {
-  console.log(`Server running on port ${port}`.yellow.bold);
-});
 
-server.on("error", (error) => {
-  if (error.code === "EADDRINUSE") {
-    console.error(`Port ${port} is already in use. Stop the other server or set PORT to a free port.`);
-  } else {
-    console.error("Backend failed to start:", error.message);
-  }
-  process.exit(1);
-});
+// ==========================================
+// REPLACE YOUR OLD START SERVER BLOCK WITH THIS:
+// ==========================================
+if (process.env.NODE_ENV !== "production") {
+  const server = app.listen(port, () => {
+    console.log(`Server running on port ${port}`.yellow.bold);
+  });
 
-module.exports = app; // Essential for Vercel to treat this Express application as a handler
+  server.on("error", (error) => {
+    if (error.code === "EADDRINUSE") {
+      console.error(`Port ${port} is already in use. Stop the other server or set PORT to a free port.`);
+    } else {
+      console.error("Backend failed to start:", error.message);
+    }
+    process.exit(1);
+  });
+}
+
+// MUST EXPORT FOR VERCEL SERVERLESS
+module.exports = app;
 
